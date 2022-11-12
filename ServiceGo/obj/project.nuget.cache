@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "g0zLr/8f89hhiCb/LwlIfnl/6GLC3DHCJuY3gUEEgeXWv0D0OYguJPr00dIqASrAf155nsXBD8hrzLDhcyhmrQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\franc\\Documents\\Francis SMU\\MCDA 5510 SOFTWARE\\MCDA_5510_SERVICE-GO_BackEnd\\ServiceGo\\ServiceGo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\franc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
