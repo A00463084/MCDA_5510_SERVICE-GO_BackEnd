@@ -1,17 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Principal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Microsoft.VisualBasic;
 using ServiceGo.Models;
-using System.Diagnostics.Metrics;
-using System.Numerics;
+
 
 namespace ServiceGo.Controllers
 {
@@ -26,7 +16,7 @@ namespace ServiceGo.Controllers
         public MainController(IConfiguration configuration)
         {
             _configuration = configuration;
-            conn= new dbconnect(_configuration).DBConnect();
+            conn= new DbConnect(_configuration).Connect();
 
         }
 
@@ -36,7 +26,7 @@ namespace ServiceGo.Controllers
         public string Login(Login acc)
         {
 
-            string msg = new login().log(acc,conn);
+            string msg = new LoginController().Login(acc, conn);
             return msg;
         }
 
@@ -45,7 +35,7 @@ namespace ServiceGo.Controllers
         public string Signup(Signup acc)
         {
 
-            string msg = new signup().register(acc,conn);
+            string msg = new SignupController().Signup(acc, conn);
             return msg;
 
         }

@@ -31,3 +31,36 @@ C:\Users\franc\Documents\Francis SMU\MCDA 5510 SOFTWARE\MCDA_5510_SERVICE-GO_Bac
 C:\Users\franc\Documents\Francis SMU\MCDA 5510 SOFTWARE\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.pdb
 C:\Users\franc\Documents\Francis SMU\MCDA 5510 SOFTWARE\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.genruntimeconfig.cache
 C:\Users\franc\Documents\Francis SMU\MCDA 5510 SOFTWARE\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ref\ServiceGo.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\appsettings.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\ServiceGo.exe
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\ServiceGo.deps.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\ServiceGo.runtimeconfig.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\ServiceGo.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\ServiceGo.pdb
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.csproj.AssemblyReference.cache
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.AssemblyInfoInputs.cache
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.AssemblyInfo.cs
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.csproj.CoreCompileInputs.cache
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\scopedcss\bundle\ServiceGo.styles.css
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.csproj.CopyComplete
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\refint\ServiceGo.dll
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.pdb
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ServiceGo.genruntimeconfig.cache
+C:\Users\risha\Desktop\MCDA_5510_SERVICE-GO_BackEnd\obj\Debug\net6.0\ref\ServiceGo.dll

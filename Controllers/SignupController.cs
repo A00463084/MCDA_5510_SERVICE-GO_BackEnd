@@ -1,23 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Security.Principal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
-using Microsoft.VisualBasic;
 using ServiceGo.Models;
-using System.Diagnostics.Metrics;
-using System.Numerics;
+
 
 namespace ServiceGo.Controllers
 {
-    public class signup : Controller
+    public class SignupController : Controller
     {
-        public string register(Signup acc, SqlConnection conn)
+        public string Signup(Signup acc, SqlConnection conn)
         {
             string msg = string.Empty;
             try
@@ -35,14 +26,10 @@ namespace ServiceGo.Controllers
                 {
                     msg = "Data Inserted";
                 }
-
                 else
                 {
                     msg = "Error";
                 }
-
-
-
 
             }
             catch (Exception ex)
