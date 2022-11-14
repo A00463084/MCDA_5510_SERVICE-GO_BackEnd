@@ -1,33 +1,59 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Principal;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Microsoft.VisualBasic;
+using ServiceGo.Models;
+using System.Diagnostics.Metrics;
+using System.Numerics;
 
 namespace ServiceGo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MainController : ControllerBase
+    public class MainController : Controller
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
-        private readonly ILogger<MainController> _logger;
+        public readonly IConfiguration _configuration;
+        SqlConnection conn;
 
-        public MainController(ILogger<MainController> logger)
+        public MainController(IConfiguration configuration)
         {
-            _logger = logger;
+            _configuration = configuration;
+            conn= new dbconnect(_configuration).DBConnect();
+
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+
+        [HttpGet]
+        [Route("login")]
+        public string Login(Login acc)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+
+            string msg = new login().log(acc,conn);
+            return msg;
         }
+
+        [HttpPost]
+        [Route("signup")]
+        public string Signup(Signup acc)
+        {
+
+            string msg = new signup().register(acc,conn);
+            return msg;
+
+        }
+
+        ~MainController()
+        {
+            conn.Close();
+        }
+
     }
 }
