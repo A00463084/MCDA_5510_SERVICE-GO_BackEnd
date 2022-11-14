@@ -15,7 +15,7 @@ namespace ServiceGo.Controllers
             {
 
                 
-                SqlCommand cmd = new SqlCommand("Insert into Users (name,password,email,address,city,province,country,postal_code,phone) values ('" + acc.name + "','" + acc.password + "','" + acc.email + "','" + acc.address + "','" + acc.city + "','" + acc.province + "','" + acc.country + "','" + acc.postal_code + "','" + acc.phone + "')",conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Users (name,password,email,address,city,province,country,postal_code,phone) VALUES ('" + acc.name + "','" + acc.password + "','" + acc.email + "','" + acc.address + "','" + acc.city + "','" + acc.province + "','" + acc.country + "','" + acc.postal_code + "','" + acc.phone + "')", conn);
 
                 cmd.CommandType = CommandType.Text;
 
@@ -24,11 +24,11 @@ namespace ServiceGo.Controllers
 
                 if (k > 0)
                 {
-                    msg = "Data Inserted";
+                    msg = "User Account Created";
                 }
                 else
                 {
-                    msg = "Error";
+                    msg = "Signup Error";
                 }
 
             }

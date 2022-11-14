@@ -16,7 +16,15 @@ namespace ServiceGo.Controllers
         public MainController(IConfiguration configuration)
         {
             _configuration = configuration;
-            conn= new DbConnect(_configuration).Connect();
+
+            try
+            {
+                conn = new DbConnect(_configuration).Connect();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
 
