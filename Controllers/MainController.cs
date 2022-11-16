@@ -48,6 +48,26 @@ namespace ServiceGo.Controllers
 
         }
 
+        [HttpPost]
+        [Route("userprofile/update")]
+        public string Userprofileupdate(Userprofile acc)
+        {
+
+            string msg = new UserprofileController().UpdateUserprofile(acc, conn);
+            return msg;
+
+        }
+
+        [HttpPost]
+        [Route("userprofile/delete")]
+        public string Userprofiledelete(Userprofile acc)
+        {
+
+            string msg = new UserprofileController().DeleteUserprofile(acc, conn);
+            return msg;
+
+        }
+
         ~MainController()
         {
             conn.Close();
