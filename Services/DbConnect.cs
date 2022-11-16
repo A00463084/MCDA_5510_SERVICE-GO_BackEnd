@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 
-
-namespace ServiceGo.Controllers
+namespace ServiceGo.Services
 {
-    public class DbConnect : Controller
+    public class DbConnect
     {
         public readonly IConfiguration _configuration;
 
