@@ -2,18 +2,17 @@
 using System.Data.SqlClient;
 using ServiceGo.Models;
 
-
-namespace ServiceGo.Controllers
+namespace ServiceGo.Services
 {
-    public class LoginController : Controller
+    public class LoginService
     {
-        public string Login (Login acc, SqlConnection conn)
+        public string Login(Login acc, SqlConnection conn)
         {
             string msg = string.Empty;
             try
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'",conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
@@ -34,5 +33,6 @@ namespace ServiceGo.Controllers
 
             return msg;
         }
+
     }
 }

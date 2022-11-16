@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using System.Data.SqlClient;
 using ServiceGo.Models;
+using System.Data;
 
-
-namespace ServiceGo.Controllers
+namespace ServiceGo.Services
 {
-    public class SignupController : Controller
+    public class SignupService
     {
         public string Signup(Signup acc, SqlConnection conn)
         {
@@ -14,7 +13,6 @@ namespace ServiceGo.Controllers
             try
             {
 
-                
                 SqlCommand cmd = new SqlCommand("INSERT INTO Users (name,password,email,address,city,province,country,postal_code,phone) VALUES ('" + acc.name + "','" + acc.password + "','" + acc.email + "','" + acc.address + "','" + acc.city + "','" + acc.province + "','" + acc.country + "','" + acc.postal_code + "','" + acc.phone + "')", conn);
 
                 cmd.CommandType = CommandType.Text;
@@ -40,5 +38,6 @@ namespace ServiceGo.Controllers
             return msg;
 
         }
+
     }
 }

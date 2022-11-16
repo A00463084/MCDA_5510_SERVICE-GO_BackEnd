@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using ServiceGo.Models;
+using ServiceGo.Services;
 
 
 namespace ServiceGo.Controllers
@@ -34,7 +35,7 @@ namespace ServiceGo.Controllers
         public string Login(Login acc)
         {
 
-            string msg = new LoginController().Login(acc, conn);
+            string msg = new LoginService().Login(acc, conn);
             return msg;
         }
 
@@ -43,7 +44,7 @@ namespace ServiceGo.Controllers
         public string Signup(Signup acc)
         {
 
-            string msg = new SignupController().Signup(acc, conn);
+            string msg = new SignupService().Signup(acc, conn);
             return msg;
 
         }
@@ -53,7 +54,7 @@ namespace ServiceGo.Controllers
         public string Userprofileupdate(Userprofile acc)
         {
 
-            string msg = new UserprofileController().UpdateUserprofile(acc, conn);
+            string msg = new UserprofileService().UpdateUserprofile(acc, conn);
             return msg;
 
         }
@@ -63,8 +64,19 @@ namespace ServiceGo.Controllers
         public string Userprofiledelete(Userprofile acc)
         {
 
-            string msg = new UserprofileController().DeleteUserprofile(acc, conn);
+            string msg = new UserprofileService().DeleteUserprofile(acc, conn);
             return msg;
+
+        }
+
+
+        [HttpPost]
+        [Route("userprofile/orderhistory")]
+        public string Userorderhistory(Orderhistory acc)
+        {
+
+            string data = new OrderhistoryService().orderhistory(acc, conn);
+            return data;
 
         }
 

@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
+﻿using ServiceGo.Models;
 using System.Data.SqlClient;
-using ServiceGo.Models;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ServiceGo.Controllers
+namespace ServiceGo.Services
 {
-    public class UserprofileController : Controller
+    public class UserprofileService
     {
         public string UpdateUserprofile(Userprofile acc, SqlConnection conn)
         {
@@ -13,7 +13,7 @@ namespace ServiceGo.Controllers
             try
             {
 
-                SqlCommand cmd = new SqlCommand("Update Users set name = '"+acc.name+"', password = '"+acc.password+"', address = '"+acc.address + "', city = '"+acc.city + "', province = '"+acc.province + "', country = '"+acc.country + "', postal_code = '"+acc.postal_code+"', phone = '"+acc.phone+"' where email = '"+acc.email+"'", conn);
+                SqlCommand cmd = new SqlCommand("Update Users set name = '" + acc.name + "', password = '" + acc.password + "', address = '" + acc.address + "', city = '" + acc.city + "', province = '" + acc.province + "', country = '" + acc.country + "', postal_code = '" + acc.postal_code + "', phone = '" + acc.phone + "' where email = '" + acc.email + "'", conn);
 
                 cmd.CommandType = CommandType.Text;
 
@@ -54,11 +54,11 @@ namespace ServiceGo.Controllers
 
                 if (k > 0)
                 {
-                    msg = "Update User Profile";
+                    msg = "Deleted User Profile Successfully";
                 }
                 else
                 {
-                    msg = "Update Failed, User Account Doesn't Exist";
+                    msg = "Deletion Failed, User Account Doesn't Exist";
                 }
 
             }
