@@ -80,6 +80,16 @@ namespace ServiceGo.Controllers
 
         }
 
+        [HttpPost]
+        [Route("/booking")]
+        public string Booking(Booking acc)
+        {
+
+            string data = new BookingService().Book(acc, conn);
+            return data;
+
+        }
+
         ~MainController()
         {
             conn.Close();
