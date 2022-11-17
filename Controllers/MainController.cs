@@ -90,6 +90,18 @@ namespace ServiceGo.Controllers
 
         }
 
+        [HttpGet]
+        [Route("/employeelist")]
+        public string Employeelist(Employeelisting acc)
+        {
+
+            string data = new EmployeelistingService().Employee_list(acc, conn);
+            return data;
+
+        }
+
+
+
         ~MainController()
         {
             conn.Close();
