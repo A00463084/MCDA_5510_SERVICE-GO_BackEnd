@@ -90,6 +90,16 @@ namespace ServiceGo.Controllers
 
         }
 
+        [HttpPost]
+        [Route("bookings/delete")]
+        public string DeleteBooking(DeleteBooking acc)
+        {
+
+            string msg = new DeleteBookingService().Delete(acc, conn);
+            return msg;
+
+        }
+
         [HttpGet]
         [Route("/employeelist")]
         public string Employeelist(Employeelisting acc)
