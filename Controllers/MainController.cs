@@ -1,33 +1,121 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
+using ServiceGo.Models;
+using ServiceGo.Services;
+
 
 namespace ServiceGo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MainController : ControllerBase
+    public class MainController : Controller
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
-        private readonly ILogger<MainController> _logger;
+        public readonly IConfiguration _configuration;
+        SqlConnection conn;
 
-        public MainController(ILogger<MainController> logger)
+        public MainController(IConfiguration configuration)
         {
-            _logger = logger;
-        }
+            _configuration = configuration;
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            try
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                conn = new DbConnect(_configuration).Connect();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
+
+
+        [HttpGet]
+        [Route("login")]
+        public string Login(Login acc)
+        {
+
+            string msg = new LoginService().Login(acc, conn);
+            return msg;
+        }
+
+        [HttpPost]
+        [Route("signup")]
+        public string Signup(Signup acc)
+        {
+
+            string msg = new SignupService().Signup(acc, conn);
+            return msg;
+
+        }
+
+        [HttpPost]
+        [Route("userprofile/update")]
+        public string Userprofileupdate(Userprofile acc)
+        {
+
+            string msg = new UserprofileService().UpdateUserprofile(acc, conn);
+            return msg;
+
+        }
+
+        [HttpPost]
+        [Route("userprofile/delete")]
+        public string Userprofiledelete(Userprofile acc)
+        {
+
+            string msg = new UserprofileService().DeleteUserprofile(acc, conn);
+            return msg;
+
+        }
+
+
+        [HttpPost]
+        [Route("userprofile/orderhistory")]
+        public string Userorderhistory(Orderhistory acc)
+        {
+
+            string data = new OrderhistoryService().orderhistory(acc, conn);
+            return data;
+
+        }
+
+        [HttpPost]
+        [Route("/booking")]
+        public string Booking(Booking acc)
+        {
+
+            string data = new BookingService().Book(acc, conn);
+            return data;
+
+        }
+
+        [HttpPost]
+        [Route("bookings/delete")]
+        public string DeleteBooking(DeleteBooking acc)
+        {
+
+            string msg = new DeleteBookingService().Delete(acc, conn);
+            return msg;
+
+        }
+
+        [HttpGet]
+        [Route("/employeelist")]
+        public string Employeelist(Employeelisting acc)
+        {
+
+            string data = new EmployeelistingService().Employee_list(acc, conn);
+            return data;
+
+        }
+
+
+
+        ~MainController()
+        {
+            conn.Close();
+        }
+
     }
 }
