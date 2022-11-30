@@ -2,6 +2,10 @@
 using System.Data.SqlClient;
 using ServiceGo.Models;
 using System.Data;
+using Microsoft.AspNetCore.Routing;
+using System.Net.Http;
+using System.Net;
+
 
 namespace ServiceGo.Services
 {
@@ -10,6 +14,7 @@ namespace ServiceGo.Services
         public string Signup(Signup acc, SqlConnection conn)
         {
             string msg = string.Empty;
+            
             try
             {
 
@@ -22,20 +27,27 @@ namespace ServiceGo.Services
 
                 if (k > 0)
                 {
-                    msg = "User Account Created";
+
+                    msg = "User Signup Successful";
+                    
                 }
                 else
                 {
                     msg = "Signup Error";
+                    
+                    
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                
+                
             }
 
             return msg;
+            
 
         }
 

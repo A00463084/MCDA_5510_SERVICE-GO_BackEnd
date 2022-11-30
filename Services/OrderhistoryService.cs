@@ -9,14 +9,14 @@ namespace ServiceGo.Services
         public string orderhistory(Orderhistory acc, SqlConnection conn)
         {
             string msg = string.Empty;
+            string JSONString = string.Empty;
+
             try
             {
 
                 SqlCommand cmd = new SqlCommand("Select distinct Orders.date, Orders.time_slot, Employees.name, Employees.category, Employees.Cost from Orders, Employees, Users where Orders.emp_id=Employees.id and Orders.user_id = (select id from Users where email = '" + acc.email + "') order by Orders.date desc",conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
-                string JSONString = string.Empty;
 
                 List<object> objects = new List<object>();
 
@@ -43,16 +43,19 @@ namespace ServiceGo.Services
                 }
                 else
                 {
+                    
                     msg = "No previous orders";
+                    return msg;
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                return msg;
             }
 
-            return msg;
+            
         }
     }
 }

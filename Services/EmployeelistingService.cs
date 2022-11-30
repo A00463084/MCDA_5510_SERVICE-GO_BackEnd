@@ -10,14 +10,13 @@ namespace ServiceGo.Services
         public string Employee_list(Employeelisting acc, SqlConnection conn)
         {
             string msg = string.Empty;
+            string JSONString = string.Empty;
             try
             {
 
-                SqlCommand cmd = new SqlCommand("select Employees.name,Employees.email,Employees.rating,Employees.phone,Employees.cost from Employees where category = '"+acc.category+ "' and id not in (select emp_id from Orders where date = '"+acc.date+ "' and time_slot= '"+acc.timeslot+"')", conn);
+                SqlCommand cmd = new SqlCommand("SELECT Employees.name,Employees.email,Employees.rating,Employees.phone,Employees.cost FROM EMPLOYEES WHERE category = '"+acc.category+ "' and id not in (SELECT emp_id FROM ORDERS where date = '"+acc.date+ "' and time_slot= '"+acc.timeslot+"')", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
-                string JSONString = string.Empty;
 
                 List<object> objects = new List<object>();
 
@@ -44,16 +43,22 @@ namespace ServiceGo.Services
                 }
                 else
                 {
+                    
                     msg = "All Employees are busy. Please Choose different time slot";
+                    return msg;
+
                 }
 
             }
             catch (Exception ex)
             {
+                
                 msg = ex.Message;
+                return msg;
+
             }
 
-            return msg;
+            
         }
 
     }

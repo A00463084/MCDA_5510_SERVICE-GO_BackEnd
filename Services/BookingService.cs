@@ -9,6 +9,7 @@ namespace ServiceGo.Services
         public string Book(Booking acc, SqlConnection conn)
         {
             string msg = string.Empty;
+
             try
             {
 
@@ -21,17 +22,22 @@ namespace ServiceGo.Services
 
                 if (k > 0)
                 {
+                    
                     msg = "Booking Success";
+                    
                 }
                 else
                 {
+                    
                     msg = "Booking Error";
+                    
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                
             }
 
             return msg;

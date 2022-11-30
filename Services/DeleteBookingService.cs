@@ -9,6 +9,7 @@ namespace ServiceGo.Services
         public string Delete(DeleteBooking acc, SqlConnection conn)
         {
             string msg = string.Empty;
+           
             try
             {
 
@@ -21,17 +22,23 @@ namespace ServiceGo.Services
 
                 if (k > 0)
                 {
+                   
                     msg = "Delete Booking Success";
+                    
                 }
                 else
                 {
+                    
                     msg = "Delete Booking Error";
+                    
+
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                
             }
 
             return msg;

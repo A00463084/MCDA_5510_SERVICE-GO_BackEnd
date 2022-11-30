@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using ServiceGo.Models;
+using System.Net;
 
 namespace ServiceGo.Services
 {
     public class LoginService
     {
-        public string Login(Login acc, SqlConnection conn)
+        public string Login(Login acc, SqlConnection conn) 
         {
             string msg = string.Empty;
+            
             try
             {
 
@@ -19,10 +21,13 @@ namespace ServiceGo.Services
                 if (reader.Read())
                 {
                     msg = "User Login Successful";
+                    
                 }
                 else
                 {
+                    
                     msg = "Login Error";
+                    
                 }
 
             }
@@ -32,6 +37,9 @@ namespace ServiceGo.Services
             }
 
             return msg;
+
+            
+
         }
 
     }
