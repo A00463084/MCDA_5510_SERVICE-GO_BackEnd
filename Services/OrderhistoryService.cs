@@ -1,12 +1,17 @@
 ﻿using ServiceGo.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceGo.Services
 {
-    public class OrderhistoryService
+    public class OrderhistoryService: Controller
     {
-        public string orderhistory(Orderhistory acc, SqlConnection conn)
+        public ActionResult orderhistory(Orderhistory acc, SqlConnection conn)
         {
             string msg = string.Empty;
             string JSONString = string.Empty;
@@ -36,23 +41,31 @@ namespace ServiceGo.Services
                         }
                         objects.Add(record);
                         
+                        
 
                     }
-                    JSONString = Newtonsoft.Json.JsonConvert.SerializeObject(objects);
-                    return JSONString;
+                    return Json(objects);
                 }
                 else
                 {
-                    
+
                     msg = "No previous orders";
-                    return msg;
+                    IDictionary<string, object> r = new Dictionary<string, object>();
+                    List<object> msg_obj = new List<object>();
+                    r.Add("Status", msg);
+                    msg_obj.Add(r);
+                    return Json(msg_obj);
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
-                return msg;
+                IDictionary<string, object> r = new Dictionary<string, object>();
+                List<object> msg_obj = new List<object>();
+                r.Add("Status", msg);
+                msg_obj.Add(r);
+                return Json(msg_obj);
             }
 
             

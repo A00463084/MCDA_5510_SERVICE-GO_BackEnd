@@ -5,9 +5,9 @@ using System.Net;
 
 namespace ServiceGo.Services
 {
-    public class LoginService
+    public class LoginService : Controller
     {
-        public string Login(Login acc, SqlConnection conn) 
+        public ActionResult Login(Login acc, SqlConnection conn) 
         {
             string msg = string.Empty;
             
@@ -36,9 +36,13 @@ namespace ServiceGo.Services
                 msg = ex.Message;
             }
 
-            return msg;
+            IDictionary<string, object> r = new Dictionary<string, object>();
+            List<object> msg_obj = new List<object>();
+            r.Add("Status", msg);
+            msg_obj.Add(r);
+            return Json(msg_obj);
 
-            
+
 
         }
 

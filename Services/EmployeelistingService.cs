@@ -1,13 +1,14 @@
-﻿using ServiceGo.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ServiceGo.Models;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace ServiceGo.Services
 {
-    public class EmployeelistingService
+    public class EmployeelistingService : Controller
     {
 
-        public string Employee_list(Employeelisting acc, SqlConnection conn)
+        public ActionResult Employee_list(Employeelisting acc, SqlConnection conn)
         {
             string msg = string.Empty;
             string JSONString = string.Empty;
@@ -38,14 +39,17 @@ namespace ServiceGo.Services
 
 
                     }
-                    JSONString = Newtonsoft.Json.JsonConvert.SerializeObject(objects);
-                    return JSONString;
+                    return Json(objects);
                 }
                 else
                 {
                     
                     msg = "All Employees are busy. Please Choose different time slot";
-                    return msg;
+                    IDictionary<string, object> r = new Dictionary<string, object>();
+                    List<object> msg_obj = new List<object>();
+                    r.Add("Status", msg);
+                    msg_obj.Add(r);
+                    return Json(msg_obj);
 
                 }
 
@@ -54,7 +58,11 @@ namespace ServiceGo.Services
             {
                 
                 msg = ex.Message;
-                return msg;
+                IDictionary<string, object> r = new Dictionary<string, object>();
+                List<object> msg_obj = new List<object>();
+                r.Add("Status", msg);
+                msg_obj.Add(r);
+                return Json(msg_obj);
 
             }
 

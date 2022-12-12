@@ -9,9 +9,9 @@ using System.Net;
 
 namespace ServiceGo.Services
 {
-    public class SignupService
+    public class SignupService : Controller
     {
-        public string Signup(Signup acc, SqlConnection conn)
+        public ActionResult Signup(Signup acc, SqlConnection conn)
         {
             string msg = string.Empty;
             
@@ -46,8 +46,12 @@ namespace ServiceGo.Services
                 
             }
 
-            return msg;
-            
+            IDictionary<string, object> r = new Dictionary<string, object>();
+            List<object> msg_obj = new List<object>();
+            r.Add("Status", msg);
+            msg_obj.Add(r);
+            return Json(msg_obj);
+
 
         }
 

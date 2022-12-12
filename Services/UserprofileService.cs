@@ -7,9 +7,9 @@ using System.Net.Http;
 
 namespace ServiceGo.Services
 {
-    public class UserprofileService
+    public class UserprofileService : Controller
     {
-        public string UpdateUserprofile(Userprofile acc, SqlConnection conn)
+        public ActionResult UpdateUserprofile(Userprofile acc, SqlConnection conn)
         {
             string msg = string.Empty;
             
@@ -44,11 +44,16 @@ namespace ServiceGo.Services
                 
             }
 
-            return msg;
+            IDictionary<string, object> r = new Dictionary<string, object>();
+            List<object> msg_obj = new List<object>();
+            r.Add("Status", msg);
+            msg_obj.Add(r);
+            return Json(msg_obj);
+
 
         }
 
-        public string DeleteUserprofile(Userprofile acc, SqlConnection conn)
+        public ActionResult DeleteUserprofile(Userprofile acc, SqlConnection conn)
         {
             string msg = string.Empty;
             
@@ -82,7 +87,11 @@ namespace ServiceGo.Services
                 
             }
 
-            return msg;
+            IDictionary<string, object> r = new Dictionary<string, object>();
+            List<object> msg_obj = new List<object>();
+            r.Add("Status", msg);
+            msg_obj.Add(r);
+            return Json(msg_obj);
 
 
         }
