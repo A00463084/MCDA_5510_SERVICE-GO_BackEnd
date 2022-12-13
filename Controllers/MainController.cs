@@ -2,21 +2,32 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using ServiceGo.Models;
 using ServiceGo.Services;
-
+using Stripe;
+using Microsoft.Extensions.Options;
 
 namespace ServiceGo.Controllers
 {
+    public class StripeOptions
+    {
+        public string option { get; set; }
+    }
+
     [ApiController]
     [Route("[controller]")]
     public class MainController : ControllerBase
     {
+        public readonly IOptions<StripeOptions> options;
+        public readonly IStripeClient client;
 
         public readonly IConfiguration _configuration;
         SqlConnection conn;
 
-        public MainController(IConfiguration configuration)
+        public MainController(IConfiguration configuration, IOptions<StripeOptions> options)
         {
             _configuration = configuration;
+
+            this.options = options;
+            this.client = new StripeClient("sk_test_51MDemNKaNeuM0GXPMIA7qOxbQay2HlEx3MUsiBqthRxH3ksJCcy6tCmlvRGjodyScazsPBDRcL20UKU30Ee43Aub005zihGai3");
 
             try
             {
@@ -119,6 +130,32 @@ namespace ServiceGo.Controllers
             return data;
 
 
+        }
+
+        [HttpPost("create-payment-intent")]
+        public async Task<IActionResult> CreatePaymentIntent(Payment acc)
+        {
+            var options = new PaymentIntentCreateOptions
+            {
+                Amount = acc.amount,
+                Currency = "CAD",
+            };
+            var service = new PaymentIntentService(this.client);
+            
+            try
+            {
+                var paymentIntent = await service.CreateAsync(options);
+                return Ok(new { clientSecret = paymentIntent.ClientSecret });
+            } 
+            catch(Stripe.StripeException ex)
+            {
+                return BadRequest(new
+                {
+                    Error = new { 
+                        Message = ex.Message
+                    }
+                });
+            }
         }
 
 
