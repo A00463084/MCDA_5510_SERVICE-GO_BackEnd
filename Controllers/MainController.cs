@@ -30,7 +30,7 @@ namespace ServiceGo.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login(Login acc)
         {
