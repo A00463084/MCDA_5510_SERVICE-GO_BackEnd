@@ -7,10 +7,10 @@ namespace ServiceGo.Services
 {
     public class LoginService : Controller
     {
-        public ActionResult Login(Login acc, SqlConnection conn) 
+        public ActionResult Login(Login acc, SqlConnection conn)
         {
             string msg = string.Empty;
-            
+
             try
             {
 
@@ -43,9 +43,9 @@ namespace ServiceGo.Services
 
                 else
                 {
-                    
+
                     msg = "Login Error";
-                    
+
                 }
 
             }
