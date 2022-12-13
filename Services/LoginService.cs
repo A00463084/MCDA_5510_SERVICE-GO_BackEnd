@@ -14,15 +14,33 @@ namespace ServiceGo.Services
             try
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'", conn);
+                SqlCommand cmd = new SqlCommand("SELECT name FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
+                List<object> objects = new List<object>();
+
+
+                if (reader.HasRows)
                 {
-                    msg = "User Login Successful";
-                    
+                    while (reader.Read())
+                    {
+                        IDictionary<string, object> record = new Dictionary<string, object>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            record.Add(reader.GetName(i), reader[i]);
+
+                        }
+                        msg = "User Login Successful";
+                        record.Add("Status", msg);
+                        objects.Add(record);
+
+
+
+                    }
+                    return Json(objects);
                 }
+
                 else
                 {
                     
