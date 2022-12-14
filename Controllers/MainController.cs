@@ -120,7 +120,7 @@ namespace ServiceGo.Controllers
             return msg;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("/employeelist")]
         public async Task<IActionResult> Employeelist(Employeelisting acc)
         {
