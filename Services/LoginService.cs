@@ -14,7 +14,7 @@ namespace ServiceGo.Services
             try
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT name FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'", conn);
+                SqlCommand cmd = new SqlCommand("SELECT id, name FROM Users WHERE email='" + acc.email + "' AND password='" + acc.password + "'", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
