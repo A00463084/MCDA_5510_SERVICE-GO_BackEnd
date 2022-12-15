@@ -1,22 +1,27 @@
 ﻿using ServiceGo.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceGo.Services
 {
-    public class OrderhistoryService
+    public class OrderhistoryService: Controller
     {
-        public string orderhistory(Orderhistory acc, SqlConnection conn)
+        public ActionResult orderhistory(Orderhistory acc, SqlConnection conn)
         {
             string msg = string.Empty;
+            string JSONString = string.Empty;
+
             try
             {
 
                 SqlCommand cmd = new SqlCommand("Select distinct Orders.date, Orders.time_slot, Employees.name, Employees.category, Employees.Cost from Orders, Employees, Users where Orders.emp_id=Employees.id and Orders.user_id = (select id from Users where email = '" + acc.email + "') order by Orders.date desc",conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
-                string JSONString = string.Empty;
 
                 List<object> objects = new List<object>();
 
@@ -36,23 +41,35 @@ namespace ServiceGo.Services
                         }
                         objects.Add(record);
                         
+                        
 
                     }
-                    JSONString = Newtonsoft.Json.JsonConvert.SerializeObject(objects);
-                    return JSONString;
+                    return Json(objects);
                 }
                 else
                 {
+
                     msg = "No previous orders";
+                    IDictionary<string, object> r = new Dictionary<string, object>();
+                    List<object> msg_obj = new List<object>();
+                    r.Add("Status", msg);
+                    msg_obj.Add(r);
+                    return Json(msg_obj);
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                IDictionary<string, object> r = new Dictionary<string, object>();
+                List<object> msg_obj = new List<object>();
+                r.Add("Status", msg);
+                msg_obj.Add(r);
+                return Json(msg_obj);
             }
 
-            return msg;
+            
         }
+
     }
 }

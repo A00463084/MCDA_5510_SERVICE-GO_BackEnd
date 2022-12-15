@@ -1,14 +1,16 @@
 ﻿using System.Data.SqlClient;
 using ServiceGo.Models;
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceGo.Services
 {
-    public class DeleteBookingService
+    public class DeleteBookingService : Controller
     {
-        public string Delete(DeleteBooking acc, SqlConnection conn)
+        public ActionResult Delete(DeleteBooking acc, SqlConnection conn)
         {
             string msg = string.Empty;
+           
             try
             {
 
@@ -21,20 +23,31 @@ namespace ServiceGo.Services
 
                 if (k > 0)
                 {
+                   
                     msg = "Delete Booking Success";
+                    
                 }
                 else
                 {
+                    
                     msg = "Delete Booking Error";
+                    
+
                 }
 
             }
             catch (Exception ex)
             {
                 msg = ex.Message;
+                
             }
 
-            return msg;
+            IDictionary<string, object> r = new Dictionary<string, object>();
+            List<object> msg_obj = new List<object>();
+            r.Add("Status", msg);
+            msg_obj.Add(r);
+            return Json(msg_obj);
+
 
         }
 
