@@ -6,8 +6,8 @@
 
         public string time_slot { get; set; }
 
-        public string emp_id { get; set; }
+        public int emp_id { get; set; }
 
-        public string user_id { get; set; }
+        public int user_id { get; set; }
     }
 }

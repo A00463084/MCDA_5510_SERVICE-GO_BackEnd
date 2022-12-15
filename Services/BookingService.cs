@@ -14,7 +14,7 @@ namespace ServiceGo.Services
             try
             {
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO Orders (date,time_slot,emp_id,user_id) VALUES ('" + acc.date + "','" + acc.time_slot + "','" + acc.emp_id + "','" + acc.user_id + "')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Orders (date,time_slot,emp_id,user_id) VALUES ('" + acc.date + "','" + acc.time_slot + "'," + acc.emp_id + "," + acc.user_id + ")", conn);
 
                 cmd.CommandType = CommandType.Text;
 

@@ -15,7 +15,7 @@ namespace ServiceGo.Services
             try
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT Employees.name,Employees.email,Employees.rating,Employees.phone,Employees.cost FROM EMPLOYEES WHERE category = '"+acc.category+ "' and id not in (SELECT emp_id FROM ORDERS where date = '"+acc.date+ "' and time_slot= '"+acc.timeslot+"')", conn);
+                SqlCommand cmd = new SqlCommand("SELECT Employees.id,Employees.name,Employees.email,Employees.rating,Employees.phone,Employees.cost FROM EMPLOYEES WHERE category = '"+acc.category+ "' and id not in (SELECT emp_id FROM ORDERS where date = '"+acc.date+ "' and time_slot= '"+acc.timeslot+"')", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
