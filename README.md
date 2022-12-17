@@ -16,4 +16,4 @@ In the project directory, you can run:
 
 ### `dotnet run`
 
-Runs the server on [https://localhost:7190](https://localhost:7190).\
+Runs the server on [https://localhost:7190](https://localhost:7190)
