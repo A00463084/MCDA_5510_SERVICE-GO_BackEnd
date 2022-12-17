@@ -10,6 +10,8 @@ Shreerag Krishnakumar Marar - A00466805
 
 Mentor: Simon Achkar
 
+# Note: Main Branch is the Branch with Latest Commits
+
 # How to Run
 
 In the project directory, you can run:
