@@ -8,6 +8,4 @@ Rishan Deril Mascarenhas - A00454473
 
 Shreerag Krishnakumar Marar - A00466805
 
-Mentor
-
-Simon Achkar
+Mentor: Simon Achkar
